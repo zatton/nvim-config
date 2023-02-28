@@ -12,9 +12,8 @@ return {
 		"lewis6991/gitsigns.nvim",
 		name = "gitsigns",
 		-- displays git status, blame, etc. inline
-		-- TODO
 		config = true,
-		event = "BufEnter",
+		event = { "FocusLost", "CursorHold" },
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -34,15 +33,15 @@ return {
 		"is0n/jaq-nvim",
 		config = function()
 			require("config/jaq-nvim")
-			-- TODO cmd設定
 		end,
+		keys = { "<Leader>r" },
 	},
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			require("config/lualine")
 		end,
-		event = "BufEnter",
+		-- event = { "FocusLost", "CursorHold" },
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -71,14 +70,14 @@ return {
 		config = function()
 			require("config/nvim-lspconfig")
 		end,
-		event = "BufEnter",
+		event = { "BufRead", "BufNewFile" },
 	},
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
 			require("config/null-ls")
 		end,
-		event = "BufEnter",
+		event = { "BufRead", "BufNewFile" },
 	},
 	{
 		"hrsh7th/nvim-cmp",
@@ -90,7 +89,7 @@ return {
 		config = function()
 			require("config/cmp")
 		end,
-		event = "BufEnter",
+		event = { "BufRead", "BufNewFile" },
 	},
 	{
 		"hrsh7th/nvim-insx",
@@ -99,7 +98,7 @@ return {
 			local endwise = require("insx.recipe.endwise")
 			require("insx").add("<CR>", endwise.recipe(endwise.builtin))
 		end,
-		event = "BufEnter",
+		event = { "InsertEnter" },
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -109,20 +108,13 @@ return {
 		config = function()
 			require("config/nvim-treesitter")
 		end,
-		event = "BufEnter",
+		event = { "BufRead", "BufNewFile" },
 	},
-	-- {
-	-- 	"romgrk/barbar.nvim",
-	-- 	dependencies = "nvim-tree/nvim-web-devicons",
-	-- 	config = function()
-	-- 		require("config/barbar")
-	-- 	end,
-	-- 	event = "BufEnter",
-	-- },
 	{
 		"kdheepak/tabline.nvim",
 		config = function()
 			require("config/tabline")
 		end,
+		-- event = { "FocusLost", "CursorHold" },
 	},
 }
