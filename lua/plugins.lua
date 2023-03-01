@@ -70,14 +70,14 @@ return {
 		config = function()
 			require("config/nvim-lspconfig")
 		end,
-		event = { "BufRead", "BufNewFile" },
+		event = { "FocusLost", "CursorHold" },
 	},
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
 			require("config/null-ls")
 		end,
-		event = { "BufRead", "BufNewFile" },
+		event = { "FocusLost", "CursorHold" },
 	},
 	{
 		"hrsh7th/nvim-cmp",
@@ -89,7 +89,7 @@ return {
 		config = function()
 			require("config/cmp")
 		end,
-		event = { "BufRead", "BufNewFile" },
+		event = { "InsertEnter" },
 	},
 	{
 		"hrsh7th/nvim-insx",
@@ -108,7 +108,7 @@ return {
 		config = function()
 			require("config/nvim-treesitter")
 		end,
-		event = { "BufRead", "BufNewFile" },
+		event = { "FocusLost", "CursorHold" },
 	},
 	{
 		"kdheepak/tabline.nvim",
