@@ -90,15 +90,8 @@ vim.g.ruby_path = ""
 -- for tabline
 vim.opt.sessionoptions:append({ "tabpages", "globals" })
 
--- filetype
-vim.api.nvim_create_augroup("init_augroup", {})
-vim.api.nvim_create_autocmd("Bufread,BufnewFile", {
-	group = "init_augroup",
-	pattern = "*.{thor,jb,jbuilder,schema}",
-	callback = function()
-		vim.cmd("set filetype=ruby")
-	end,
-})
+-- diagnostic
+vim.keymap.set("n", "K", vim.diagnostic.open_float, { noremap = true, silent = true })
 
 require("lazy_nvim")
 require("rails")
