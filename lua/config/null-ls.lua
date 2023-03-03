@@ -36,9 +36,10 @@ require("null-ls").setup({
 	sources = {
 		require("null-ls").builtins.formatting.stylua,
 		require("null-ls").builtins.diagnostics.rubocop.with({
-			prefer_local = "bundle_bin",
+			-- prefer_local = "bundle_bin",
 			-- command = "rubocop-daemon-wrapper",
 			-- command = "rubocop-daemon",
+			extra_args = { "--server" },
 			condition = function(utils)
 				return utils.root_has_file({ ".rubocop.yml" })
 			end,
@@ -54,7 +55,7 @@ require("null-ls").setup({
 			prefer_local = "bundle_bin",
 			-- command = "rubocop-daemon-wrapper",
 			-- command = "rubocop-daemon",
-      format = "jsonh",
+			extra_args = { "--server" },
 			condition = function(utils)
 				return utils.root_has_file({ ".rubocop.yml" })
 			end,

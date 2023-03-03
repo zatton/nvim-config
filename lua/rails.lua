@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("Bufread,BufnewFile", {
 		end, { noremap = true, silent = true })
 
 		-- rubocop-daemon
-		-- vim.fn.jobstart({ "rubocop-daemon", "rubocop-daemon", "start" })
+		vim.fn.jobstart({ "rubocop", " --start-server" })
 	end,
 })
 
@@ -37,6 +37,6 @@ vim.api.nvim_create_autocmd("Bufread,BufnewFile", {
 -- 	pattern = "*",
 -- 	callback = function()
 -- 		-- rubocop-daemon
--- 		vim.fn.jobstart({ "rubocop-daemon", "rubocop-daemon", "stop" })
+-- 		vim.fn.jobstart({ "rubocop", "--stop-server" })
 -- 	end,
 -- })
